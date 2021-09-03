@@ -1,2 +1,2 @@
 # vut-isa
-Network Applications and Network Administration course project.
+Network Applications and Network Administration course project and exercises.
