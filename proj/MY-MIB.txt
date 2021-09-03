@@ -1,0 +1,61 @@
+MY-MIB DEFINITIONS ::= BEGIN
+
+-- Projekt ISA/2020
+-- Autor: Vojtech Jurka (xjurka08)
+
+IMPORTS
+	OBJECT-TYPE, Integer32, experimental, MODULE-IDENTITY         FROM SNMPv2-SMI
+	
+	DisplayString		FROM SNMPv2-TC;
+
+
+objects MODULE-IDENTITY
+    LAST-UPDATED "202010120000Z"
+    ORGANIZATION "net-snmp"
+    CONTACT-INFO "
+		  email:    xjurka08@stud.fit.vutbr.cz
+                 "
+    DESCRIPTION  "Jednoduche MIB.
+                 "
+    REVISION
+		"202010120000Z"
+    DESCRIPTION
+		""
+	::= { experimental 22 }
+
+loginString OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..10))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+	"String objekt s mym loginem."
+    DEFVAL { "xjurka08" }
+    ::= { objects 1 }
+
+dateString OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..25))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+	"String object which contains current date and time"
+    ::= { objects 2 }
+
+integer OBJECT-TYPE
+    SYNTAX      Integer32
+    MAX-ACCESS  read-write
+    STATUS      current
+    DESCRIPTION
+	"Read/write integer."
+    ::= { objects 3 }
+
+sysInfo OBJECT-TYPE
+    SYNTAX      DisplayString (SIZE (0..255))
+    MAX-ACCESS  read-only
+    STATUS      current
+    DESCRIPTION
+	"String object containing OS info."
+    ::= { objects 4 }
+
+
+
+END
